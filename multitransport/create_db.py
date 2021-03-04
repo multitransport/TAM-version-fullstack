@@ -10,16 +10,14 @@ def connect():
     return conn, c
 
 
-def temps_arrive(horaire):
-    return time.strftime('%M min %S sec', time.gmtime(horaire))
-
-
-def clear_rows(cursor):
-    cursor.execute("""DELETE FROM info_trafic""")
+def clear_rows(cursor, town):
+    cursor.execute("""
+    DELETE FROM info_trafic
+    WHERE Ville = ?""", (town,))
 
 
 def insert_csv_row(csv_row, cursor):
-    cursor.execute("""INSERT INTO info_trafic VALUES (?,?,?,?) """,
+    cursor.execute("""INSERT INTO info_trafic VALUES (?,?,?,?,?) """,
                    csv_row)
 
 
@@ -38,13 +36,14 @@ def create_schema(cursor):
     "Ligne"	TEXT,
     "Arrêt"	TEXT,
     "Destination"	TEXT,
-    "Temps_attente"	INTEGER
+    "Temps_attente"	INTEGER,
+    "Ville"	TEXT
     );""")
 
 
 def main(town):
     conn, c = connect()
-    remove_table(c)
+    clear_rows(c, town)
     if not conn:
         print(
             "Error : could not connect to database {}".format("multitrsp.db")
@@ -56,7 +55,3 @@ def main(town):
     load_csv(town, c)
     conn.commit()
     conn.close()
-
-
-# if __name__ == "__main__":
-#     sys.exit(main())

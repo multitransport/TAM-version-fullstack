@@ -4,7 +4,7 @@ import create_db as create_db
 logging.basicConfig(level=logging.DEBUG)
 
 
-def liste_stations(database):
+def liste_stations():
     conn, cursor = create_db.connect()
     cursor.execute("""
     SELECT Arrêt FROM info_trafic
@@ -18,7 +18,7 @@ def liste_stations(database):
     return liste_stations
 
 
-def liste_trains(database, station):
+def liste_trains(station):
     conn, cursor = create_db.connect()
     cursor.execute("""
     SELECT * FROM info_trafic
@@ -32,7 +32,7 @@ def liste_trains(database, station):
     return liste_passages
 
 
-def liste_next(database, station, destination, line):
+def liste_next(station, destination, line):
     conn, cursor = create_db.connect()
     cursor.execute("""
     SELECT * FROM info_trafic

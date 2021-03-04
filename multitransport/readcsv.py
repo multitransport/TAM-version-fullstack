@@ -26,7 +26,8 @@ def liste_csv_MPL(f):
                 row['route_short_name'],
                 row['stop_name'],
                 row['trip_headsign'],
-                row['delay_sec']
+                row['departure_time'],
+                'Montpellier'
                 ]
             listerow.append(readrow)
         return listerow
@@ -43,7 +44,8 @@ def liste_csv_RNS(f):
                 row['Ligne (nom court)'],
                 row["Point d'arrêt (nom)"],
                 row['Destination'],
-                row['Précision']
+                ''.join(row['Départ'].split('T')[-1]).split('+')[0],
+                'Rennes'
                 ]
             listerow.append(readrow)
         return listerow
@@ -60,7 +62,8 @@ def liste_csv_LIL(f):
                 row['codeLigne'],
                 row['nomStation'],
                 row['sensLigne'],
-                row['heureEstimeeDepart']
+                row['heureEstimeeDepart'],
+                'Lille'
                 ]
             listerow.append(readrow)
         return listerow
@@ -77,7 +80,8 @@ def liste_csv_ANE(f):
                 row['mnemoligne'],
                 row['nomarret'],
                 row['dest'],
-                row['arrivee']
+                row['arrivee'],
+                'Angers'
                 ]
             listerow.append(readrow)
         return listerow

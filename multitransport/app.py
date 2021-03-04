@@ -1,9 +1,9 @@
-from flask import Flask, render_template, jsonify
+import fonctions as fc
+import create_db as create_db
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
-import fonctions as fc
-import create_db
 
 @app.route('/')
 def entry_point():
@@ -25,8 +25,19 @@ def all_stations(town):
 @app.route('/<town>/stations/<station>')
 def next_trains(town, station):
     create_db.main(town)
-    trains = fc.liste_next_trains('multitrsp.db', station)
+    trains = fc.liste_trains('multitrsp.db', station)
     return jsonify(trains)
+
+
+@app.route('/<town>/next/')
+# ?line=<line>&station=<station>&destination=<destination>')
+def next_passages(town):
+    station = request.args.get('station')
+    destination = request.args.get('destination')
+    line = request.args.get('line')
+    create_db.main(town)
+    passage = fc.liste_next('multitrsp.db', station, destination, line)
+    return jsonify(passage)
 
 
 if __name__ == '__main__':

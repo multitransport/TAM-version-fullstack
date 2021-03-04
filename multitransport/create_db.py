@@ -1,7 +1,6 @@
 # import logging
 import sqlite3
 import time
-import sys
 from readcsv import readcsv
 
 
@@ -36,10 +35,10 @@ def remove_table(cursor):
 
 def create_schema(cursor):
     cursor.execute("""CREATE TABLE IF NOT EXISTS "info_trafic" (
-    "Numéro de ligne"	TEXT,
+    "Ligne"	TEXT,
     "Arrêt"	TEXT,
     "Destination"	TEXT,
-    "Temps d'attente"	INTEGER
+    "Temps_attente"	INTEGER
     );""")
 
 

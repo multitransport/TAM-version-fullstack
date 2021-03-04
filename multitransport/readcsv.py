@@ -4,7 +4,7 @@ from download_csv import download
 
 
 def readcsv(town):
-    with open(download(town), newline='') as f:
+    with open(download(town), newline='', encoding='utf-8') as f:
         if town == 'Montpellier':
             return liste_csv_MPL(f)
         elif town == 'Rennes':

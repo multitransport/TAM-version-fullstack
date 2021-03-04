@@ -1,23 +1,23 @@
 import csv
 import sys
-from export_bdd import download
+from download_csv import download
 
 
 def readcsv(town):
     with open(download(town), newline='') as f:
         if town == 'Montpellier':
-            return bdd_MPL(f)
+            return liste_csv_MPL(f)
         elif town == 'Rennes':
-            return bdd_RNS(f)
+            return liste_csv_RNS(f)
         elif town == 'Lille':
-            return bdd_LIL(f)
+            return liste_csv_LIL(f)
         elif town == 'Angers':
-            return bdd_ANE(f)
+            return liste_csv_ANE(f)
         else:
             print(f'Pas de fichier CSV pour {town}')
 
 
-def bdd_MPL(f):
+def liste_csv_MPL(f):
     listerow = []
     reader = csv.DictReader(f, delimiter=';')
     try:
@@ -34,7 +34,7 @@ def bdd_MPL(f):
         sys.exit(f'{e} problème avec le csv')
 
 
-def bdd_RNS(f):
+def liste_csv_RNS(f):
     listerow = []
     reader = csv.DictReader(f, delimiter=';')
     try:
@@ -51,7 +51,7 @@ def bdd_RNS(f):
         sys.exit(f'{e} problème avec le csv')
 
 
-def bdd_LIL(f):
+def liste_csv_LIL(f):
     listerow = []
     reader = csv.DictReader(f, delimiter=';')
     try:
@@ -68,7 +68,7 @@ def bdd_LIL(f):
         sys.exit(f'{e} problème avec le csv')
 
 
-def bdd_ANE(f):
+def liste_csv_ANE(f):
     listerow = []
     reader = csv.DictReader(f, delimiter=';')
     try:

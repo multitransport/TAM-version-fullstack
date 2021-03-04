@@ -4,9 +4,9 @@ import urllib.request
 def download(town):
     if town == 'Montpellier':
         url = 'https://data.montpellier3m.fr/sites/default/files/ressources/'
-        csv_file = 'TAM_MMM_TpsReel.csv'
-        dl = "TempsReel_MPL.csv"
-        urllib.request.urlretrieve(url + csv_file, dl)
+        csv_f = 'TAM_MMM_TpsReel.csv'
+        dl = "TpsReel_MPL.csv"
+        urllib.request.urlretrieve(url + csv_f, dl)
         return dl
 
     elif town == 'Rennes':

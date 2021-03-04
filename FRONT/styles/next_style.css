@@ -40,41 +40,23 @@ video
     width: 100%;
 }
 
+/*resultat*/
+#root {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    margin: 1rem;
+    border: 1px solid gray;
+  }
+/*fin resultat*/
 
-input[type=text]
-{
-    color: white;
-    width: 50%;
-    border:none;
-    box-shadow: none;
-    background-color: transparent;
-    border-bottom: 3px solid white;
-    font-family: 'Raleway', sans-serif;
-}
-
-input[type=text]:focus
-{
-    outline: none;
-    border-bottom: 3px solid red;
-    color: white
-}
-
-::placeholder
-{
-    color: white;
-    opacity: 1;
-    font-size: large;
-}
-
-input[type=submit]
-{
-    border: none;
-    border-radius: 10px;
-    color: black;
-    background-color: white;
-    padding: 10px 10px 10px 10px;
-}
-.show {display: block;}
 
 #main-container ul:nth-child(3)
 {

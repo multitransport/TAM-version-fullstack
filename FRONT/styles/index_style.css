@@ -74,9 +74,17 @@ input[type=submit]
     background-color: white;
     padding: 10px 10px 10px 10px;
 }
-.show 
+
+
+#main-container ul:nth-child(3)
 {
-    display: block;
+    display: flex;
+    justify-content: space-around;
+    flex:1;
+    list-style-type: none;
+    width: 100%;
+    padding-left: 0px;
+    padding-bottom: 5%;
 }
 
 img

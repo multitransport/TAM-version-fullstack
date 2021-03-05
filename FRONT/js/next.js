@@ -31,7 +31,7 @@ request.onload = function () {
   
     // Create a p and set the text content to the film's description
     const p = document.createElement('p')
-    p.textContent = 'Ligne : ' + transport[0] + ", Temps d'attente : " + String(transport[3]) + ' mn'
+    p.textContent = 'Ligne : ' + transport[0] + ", Heure d'arrivée : " + String(transport[3])
     
 
     // Append the cards to the container element

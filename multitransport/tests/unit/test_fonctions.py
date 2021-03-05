@@ -1,4 +1,4 @@
 from multitransport.fonctions import *
 
-def test_hello_world():
-    assert hello_world() == "Hello World"
+def test_liste_stations():
+    assert isInstance(liste_stations("multitrsp.db"), list)

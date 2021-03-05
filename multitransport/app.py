@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import fonctions as fc
 import create_db as create_db
 from flask import Flask, render_template, jsonify, request
+=======
+from flask import Flask, render_template, jsonify
+from flask_cors import CORS
+>>>>>>> 55dc5c475c7466a29e482eafbdf58e9c93149675
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')

@@ -43,7 +43,6 @@ def create_schema(cursor):
 
 def main(town):
     conn, c = connect()
-    clear_rows(c, town)
     if not conn:
         print(
             "Error : could not connect to database {}".format("multitrsp.db")
@@ -52,6 +51,7 @@ def main(town):
     # print("Ville : Montpellier, Lille, Angers, Rennes")
     # town = input("Nom de la ville : ").capitalize()
     create_schema(c)
+    clear_rows(c, town)
     load_csv(town, c)
     conn.commit()
     conn.close()

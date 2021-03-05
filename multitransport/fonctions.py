@@ -25,11 +25,20 @@ def liste_trains(station):
     WHERE Arrêt = ?
     """, (station, ))
     liste_passages = []
+    liste_row = []
     for row in cursor:
-        liste_passages.append(row)
+        print(row)
+        listerow = [row[0], row[1], row[2], row[4]]
+        liste_row.append(row[3])
+        if listerow not in liste_passages:
+            liste_passages.append(listerow)
+    liste_temps = [liste_row[i:i+3] for i in range(0,len(liste_row),3)]
+    print(liste_temps)
+    result = list(zip(liste_passages, liste_temps))
+    print(result)
     conn.commit()
     conn.close()
-    return liste_passages
+    return result
 
 
 def liste_next(station, destination, line):

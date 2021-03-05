@@ -9,7 +9,7 @@ app.appendChild(container)
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'http://127.0.0.1:5000/', true)
+request.open('GET', 'http://127.0.0.1:5000/Montpellier/next/?line=1&station=MOSSON&destination=ODYSSEUM', true)
 request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)

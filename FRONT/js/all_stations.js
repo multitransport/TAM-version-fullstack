@@ -1,3 +1,6 @@
+var parameters = location.search.substring(1).split("=");
+city = unescape(parameters[1]);
+
 const app = document.getElementById('root')
 
 const container = document.createElement('div')
@@ -10,9 +13,7 @@ var request = new XMLHttpRequest()
 request.responseType = 'json'
 // Open a new connection, using the GET request on the URL endpoint
 
-request.open('GET', 'http://127.0.0.1:5000/Montpellier/stations', true)
-
-
+request.open('GET', "http://127.0.0.1:5000/"+city+"/stations", true)
 
 
 request.onload = function () {
@@ -22,19 +23,19 @@ request.onload = function () {
 
   if (request.status >= 200 && request.status < 400) {
 
-    // Create a div with a card class
-    const card = document.createElement('div')
-    card.setAttribute('class', 'card')
-
-    // Create an h1 and set the text content to the film's title
-    const h2 = document.createElement('h2')
-    h2.textContent = "Montpellier (ou nom de ville)"
-    card.appendChild(h2)
-    const p = document.createElement('p')
-    
+     // Create a div with a card class
+     const card = document.createElement('div')
+     card.setAttribute('class', 'card')
+ 
+     // Create an h1 and set the text content to the film's title
+     const h2 = document.createElement('h2')
+     h2.textContent = city
+     card.appendChild(h2)
+     const p = document.createElement('p')
 
     data.forEach((station) => {
-  
+
+
     // Create a p and set the text content to the film's description
     const p = document.createElement('p')
     p.textContent = station

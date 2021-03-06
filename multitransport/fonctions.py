@@ -4,11 +4,11 @@ import create_db as create_db
 logging.basicConfig(level=logging.DEBUG)
 
 
-def liste_stations():
+def liste_stations(town):
     conn, cursor = create_db.connect()
     cursor.execute("""
-    SELECT Arrêt FROM info_trafic
-    """)
+    SELECT Arrêt FROM info_trafic WHERE Ville = ?
+    """, (town,))
     stations = []
     for row in cursor:
         stations.append(row[0])
@@ -18,11 +18,11 @@ def liste_stations():
     return liste_stations
 
 
-def liste_trains(station):
+def liste_trains(station, town):
     conn, cursor = create_db.connect()
     cursor.execute("""
-    SELECT * FROM info_trafic WHERE Arrêt = ?
-    """, (station, ))
+    SELECT * FROM info_trafic WHERE Arrêt = ? AND Ville = ?
+    """, (station, town))
     liste_passages = []
     liste_row = []
     for row in cursor:
@@ -37,12 +37,12 @@ def liste_trains(station):
     return result
 
 
-def liste_next(station, destination, line):
+def liste_next(station, destination, line, town):
     conn, cursor = create_db.connect()
     cursor.execute("""
     SELECT * FROM info_trafic
-    WHERE Arrêt = ? AND Destination = ? AND Ligne = ?
-    """, (station, destination, line))
+    WHERE Arrêt = ? AND Destination = ? AND Ligne = ? AND Ville = ?
+    """, (station, destination, line, town))
     liste_passages = []
     for row in cursor:
         liste_passages.append(row)

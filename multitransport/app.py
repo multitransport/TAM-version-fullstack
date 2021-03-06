@@ -21,14 +21,14 @@ def hello_world():
 @app.route('/<town>/stations')
 def all_stations(town):
     create_db.main(town)
-    stations = fc.liste_stations()
+    stations = fc.liste_stations(town)
     return jsonify(stations)
 
 
 @app.route('/<town>/stations/<station>')
 def next_trains(town, station):
     create_db.main(town)
-    trains = fc.liste_trains(station)
+    trains = fc.liste_trains(station, town)
     return jsonify(trains)
 
 
@@ -39,7 +39,7 @@ def next_passages(town):
     destination = request.args.get('destination')
     line = request.args.get('line')
     create_db.main(town)
-    passage = fc.liste_next(station, destination, line)
+    passage = fc.liste_next(station, destination, line, town)
     return jsonify(passage)
 
 

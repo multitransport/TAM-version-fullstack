@@ -1,7 +1,6 @@
 # import logging
 import sqlite3
-import time
-from readcsv import readcsv
+from multitransport.readcsv import readcsv
 
 
 def connect():

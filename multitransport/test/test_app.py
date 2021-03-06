@@ -1,6 +1,5 @@
 import unittest
-import app
-# from multitransport.app import *
+import multitransport.app as app
 
 
 # def test_home_page(test_client):

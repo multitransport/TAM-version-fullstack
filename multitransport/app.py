@@ -1,5 +1,5 @@
-import fonctions as fc
-import create_db as create_db
+import multitransport.fonctions as fc
+import multitransport.create_db as create_db
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 
@@ -43,5 +43,5 @@ def next_passages(town):
     return jsonify(passage)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)

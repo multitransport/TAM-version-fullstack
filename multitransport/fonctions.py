@@ -1,5 +1,5 @@
 import logging
-import create_db as create_db
+import multitransport.create_db as create_db
 
 logging.basicConfig(level=logging.DEBUG)
 

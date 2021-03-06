@@ -1,6 +1,6 @@
 import csv
 import sys
-from download_csv import download
+from multitransport.download_csv import download
 
 
 def readcsv(town):

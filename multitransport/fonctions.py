@@ -1,16 +1,16 @@
-import sqlite3
 import logging
+import create_db as create_db
 
 logging.basicConfig(level=logging.DEBUG)
 
-def liste_stations(database):
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
+
+def liste_stations():
+    conn, cursor = create_db.connect()
     cursor.execute("""
     SELECT Arrêt FROM info_trafic
     """)
     stations = []
-    for row in cursor: 
+    for row in cursor:
         stations.append(row[0])
     conn.commit()
     conn.close()
@@ -18,15 +18,28 @@ def liste_stations(database):
     return liste_stations
 
 
-def liste_next_trains(database, station):
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
+def liste_trains(station):
+    conn, cursor = create_db.connect()
     cursor.execute("""
     SELECT * FROM info_trafic
     WHERE Arrêt = ?
     """, (station, ))
     liste_passages = []
-    for row in cursor: 
+    for row in cursor:
+        liste_passages.append(row)
+    conn.commit()
+    conn.close()
+    return liste_passages
+
+
+def liste_next(station, destination, line):
+    conn, cursor = create_db.connect()
+    cursor.execute("""
+    SELECT * FROM info_trafic
+    WHERE Arrêt = ? AND Destination = ? AND Ligne = ?
+    """, (station, destination, line))
+    liste_passages = []
+    for row in cursor:
         liste_passages.append(row)
     conn.commit()
     conn.close()

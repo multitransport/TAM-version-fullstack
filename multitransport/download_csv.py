@@ -3,34 +3,33 @@ import urllib.request
 
 def download(town):
     if town == 'Montpellier':
-        url = 'https://data.montpellier3m.fr/sites/default/files/ressources/'
-        csv_f = 'TAM_MMM_TpsReel.csv'
+        url = 'https://data.montpellier3m.fr/sites/default/files/ressources' \
+                '/TAM_MMM_TpsReel.csv'
         dl = "TpsReel_MPL.csv"
-        urllib.request.urlretrieve(url + csv_f, dl)
+        urllib.request.urlretrieve(url, dl)
         return dl
 
     elif town == 'Rennes':
-        url1 = 'https://data.rennesmetropole.fr/explore/dataset/'
-        url2 = 'prochains-passages-des-lignes-de-metro-du-reseau-star-en-'
-        url3 = 'temps-reel/download/?format=csv&timezone=Europe/'
-        csv_f = 'Berlin&lang=fr&use_labels_for_header=true&csv_separator=%3B'
+        url = 'https://data.rennesmetropole.fr/explore/dataset/prochains-pa' \
+                'ssages-des-lignes-de-metro-du-reseau-star-en-temps-reel/do' \
+                'wnload/?format=csv&timezone=Europe/Berlin&lang=fr&use_labe' \
+                'ls_for_header=true&csv_separator=%3B'
         dl = "TpsReel_RNS.csv"
-        urllib.request.urlretrieve(url1 + url2 + url3 + csv_f, dl)
+        urllib.request.urlretrieve(url, dl)
         return dl
 
     elif town == 'Lille':
-        url1 = 'https://opendata.lillemetropole.fr/explore/dataset/'
-        url2 = 'ilevia-prochainspassages/download/?format=csv&timezone=Europe/'
-        csv_f = 'Paris&lang=fr&use_labels_for_header=true&csv_separator=%3B'
+        url = 'https://opendata.lillemetropole.fr/explore/dataset/ilevia-pr' \
+                'ochainspassages/download/?format=csv&timezone=Europe/Paris' \
+                '&lang=fr&use_labels_for_header=true&csv_separator=%3B'
         dl = "TpsReel_LIL.csv"
-        urllib.request.urlretrieve(url1 + url2 + csv_f, dl)
+        urllib.request.urlretrieve(url, dl)
         return dl
 
     elif town == 'Angers':
-        url1 = 'https://data.angers.fr/explore/dataset/'
-        url2 = 'bus-tram-circulation-passages/download/'
-        url3 = '?format=csv&timezone=Europe/'
-        csv_f = 'Berlin&lang=fr&use_labels_for_header=true&csv_separator=%3B'
+        url = 'https://data.angers.fr/explore/dataset/bus-tram-circulation-' \
+                'passages/download/?format=csv&timezone=Europe/Berlin&lang=' \
+                'fr&use_labels_for_header=true&csv_separator=%3B'
         dl = "TpsReel_ANE.csv"
-        urllib.request.urlretrieve(url1 + url2 + url3 + csv_f, dl)
+        urllib.request.urlretrieve(url, dl)
         return dl

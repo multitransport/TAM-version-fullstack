@@ -1,7 +1,6 @@
 # import logging
 import sqlite3
 import time
-import sys
 from readcsv import readcsv
 
 
@@ -11,16 +10,14 @@ def connect():
     return conn, c
 
 
-def temps_arrive(horaire):
-    return time.strftime('%M min %S sec', time.gmtime(horaire))
-
-
-def clear_rows(cursor):
-    cursor.execute("""DELETE FROM info_trafic""")
+def clear_rows(cursor, town):
+    cursor.execute("""
+    DELETE FROM info_trafic
+    WHERE Ville = ?""", (town,))
 
 
 def insert_csv_row(csv_row, cursor):
-    cursor.execute("""INSERT INTO info_trafic VALUES (?,?,?,?) """,
+    cursor.execute("""INSERT INTO info_trafic VALUES (?,?,?,?,?) """,
                    csv_row)
 
 
@@ -36,16 +33,16 @@ def remove_table(cursor):
 
 def create_schema(cursor):
     cursor.execute("""CREATE TABLE IF NOT EXISTS "info_trafic" (
-    "Numéro de ligne"	TEXT,
+    "Ligne"	TEXT,
     "Arrêt"	TEXT,
     "Destination"	TEXT,
-    "Temps d'attente"	INTEGER
+    "Temps_attente"	INTEGER,
+    "Ville"	TEXT
     );""")
 
 
 def main(town):
     conn, c = connect()
-    remove_table(c)
     if not conn:
         print(
             "Error : could not connect to database {}".format("multitrsp.db")
@@ -54,10 +51,7 @@ def main(town):
     # print("Ville : Montpellier, Lille, Angers, Rennes")
     # town = input("Nom de la ville : ").capitalize()
     create_schema(c)
+    clear_rows(c, town)
     load_csv(town, c)
     conn.commit()
     conn.close()
-
-
-# if __name__ == "__main__":
-#     sys.exit(main())

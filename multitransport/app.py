@@ -1,11 +1,12 @@
-from flask import Flask, render_template, jsonify
+import fonctions as fc
+import create_db as create_db
+from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
+
 
 app = Flask(__name__)
 CORS(app)
 
-import fonctions as fc
-import create_db
 
 @app.route('/')
 def entry_point():
@@ -20,15 +21,26 @@ def hello_world():
 @app.route('/<town>/stations')
 def all_stations(town):
     create_db.main(town)
-    stations = fc.liste_stations('multitrsp.db')
+    stations = fc.liste_stations()
     return jsonify(stations)
 
 
 @app.route('/<town>/stations/<station>')
 def next_trains(town, station):
     create_db.main(town)
-    trains = fc.liste_next_trains('multitrsp.db', station)
+    trains = fc.liste_trains(station)
     return jsonify(trains)
+
+
+@app.route('/<town>/next/')
+# ?line=<line>&station=<station>&destination=<destination>')
+def next_passages(town):
+    station = request.args.get('station')
+    destination = request.args.get('destination')
+    line = request.args.get('line')
+    create_db.main(town)
+    passage = fc.liste_next(station, destination, line)
+    return jsonify(passage)
 
 
 if __name__ == '__main__':

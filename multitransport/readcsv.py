@@ -4,6 +4,11 @@ from multitransport.download_csv import download
 
 
 def readcsv(town):
+    """ This function opens loaded csv file and depending on the town
+    calls a specific fonction.
+    Parameter :
+    - town (ex: Montpellier)
+    """
     with open(download(town), newline='', encoding='utf-8') as f:
         if town == 'Montpellier':
             return liste_csv_MPL(f)
@@ -18,6 +23,11 @@ def readcsv(town):
 
 
 def liste_csv_MPL(f):
+    """ This function loads rows form Montpellier csv file
+    and creates a list only containing relevent informations.
+    Parameter :
+    - f: csv file
+    """
     listerow = []
     reader = csv.DictReader(f, delimiter=';')
     try:
@@ -36,6 +46,11 @@ def liste_csv_MPL(f):
 
 
 def liste_csv_RNS(f):
+    """ This function loads rows form Rennes csv file
+    and creates a list only containing relevent informations.
+    Parameter :
+    - f: csv file
+    """
     listerow = []
     reader = csv.DictReader(f, delimiter=';')
     try:
@@ -54,6 +69,11 @@ def liste_csv_RNS(f):
 
 
 def liste_csv_LIL(f):
+    """ This function loads rows form Lille csv file
+    and creates a list only containing relevent informations.
+    Parameter :
+    - f: csv file
+    """
     listerow = []
     reader = csv.DictReader(f, delimiter=';')
     try:
@@ -72,6 +92,11 @@ def liste_csv_LIL(f):
 
 
 def liste_csv_ANE(f):
+    """ This function loads rows form Angers csv file
+    and creates a list only containing relevent informations.
+    Parameter :
+    - f: csv file
+    """
     listerow = []
     reader = csv.DictReader(f, delimiter=';')
     try:

@@ -1,5 +1,5 @@
 var parameters = location.search.substring(1).split("=");
-city = unescape(parameters[1]);
+town = unescape(parameters[1]);
 
 const app = document.getElementById('root')
 
@@ -13,7 +13,7 @@ var request = new XMLHttpRequest()
 request.responseType = 'json'
 // Open a new connection, using the GET request on the URL endpoint
 
-request.open('GET', "http://127.0.0.1:5000/"+city+"/stations", true)
+request.open('GET', "http://127.0.0.1:5000/"+town+"/stations", true)
 
 
 request.onload = function () {
@@ -29,13 +29,16 @@ request.onload = function () {
  
      // Create an h1 and set the text content to the film's title
      const h2 = document.createElement('h2')
-     h2.textContent = city
+     h2.textContent = town
      card.appendChild(h2)
-     const p = document.createElement('p')
+     
 
     data.forEach((station) => {
 
-
+    const a = document.createElement('a')
+    a.setAttribute('href', 'next_trains.html?town='+town+ '&'+ 'station='+station)
+    a.setAttribute('id', station)
+    
     // Create a p and set the text content to the film's description
     const p = document.createElement('p')
     p.textContent = station
@@ -43,10 +46,10 @@ request.onload = function () {
 
     // Append the cards to the container element
     container.appendChild(card)
-
-    // Each card will contain an h1 and a p
     
-    card.appendChild(p)
+    // Each card will contain an h1 and a p
+    a.appendChild(p)
+    card.appendChild(a)
       
     })
   } else {
@@ -58,4 +61,5 @@ request.onload = function () {
 
 // Send request
 request.send()
+
 

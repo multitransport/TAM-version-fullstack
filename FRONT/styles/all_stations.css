@@ -80,6 +80,7 @@ html {
     border-radius: 12px;
     overflow: hidden;
     transition: all .2s linear;
+    width: 100%;
   }
   
   .card:hover {

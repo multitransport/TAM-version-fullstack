@@ -79,6 +79,7 @@ html {
     border-radius: 12px;
     overflow: hidden;
     transition: all .2s linear;
+    width: 100%;
   }
   
   .card:hover {
@@ -88,10 +89,17 @@ html {
 
   
   
+  .card:nth-child(2n) h2 {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  }
+  
   .card:nth-child(4n) h2 {
     background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
   }
   
+  .card:nth-child(5n) h2 {
+    background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+  }
   
 /*fin resultat*/
 

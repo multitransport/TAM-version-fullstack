@@ -1,3 +1,10 @@
+var parameters = location.search.substring(1).split("=");
+
+town = unescape(parameters[1]);
+
+document.getElementById("town").innerHTML = town
+
+
 const app = document.getElementById('root')
 
 const container = document.createElement('div')
@@ -10,9 +17,7 @@ var request = new XMLHttpRequest()
 request.responseType = 'json'
 // Open a new connection, using the GET request on the URL endpoint
 
-request.open('GET', 'http://127.0.0.1:5000/Montpellier/stations', true)
-
-
+request.open('GET', "http://127.0.0.1:5000/"+town+"/stations", true)
 
 
 request.onload = function () {
@@ -28,33 +33,30 @@ request.onload = function () {
 
     // Create an h1 and set the text content to the film's title
     const h2 = document.createElement('h2')
-    h2.textContent = "Montpellier (ou nom de ville)"
+    h2.textContent = town
     card.appendChild(h2)
-    const p = document.createElement('p')
-    
-
+     
     data.forEach((station) => {
-  
-    // Create a p and set the text content to the film's description
-    const p = document.createElement('p')
-    p.textContent = station
-    
-
-    // Append the cards to the container element
-    container.appendChild(card)
-
-    // Each card will contain an h1 and a p
-    
-    card.appendChild(p)
-      
+      const a = document.createElement('a')
+      a.setAttribute('href', 'next_trains.html?town='+town+ '&'+ 'station='+station)
+      a.setAttribute('id', station)
+      // Create a p and set the text content to the film's description
+      const p = document.createElement('p')
+      p.textContent = station
+      // Append the cards to the container element
+      container.appendChild(card)
+      // Each card will contain an h1 and a p
+      a.appendChild(p)
+      card.appendChild(a)     
     })
   } else {
-  const errorMessage = document.createElement('marquee')
-  errorMessage.textContent = `Gah, it's not working!`
-  app.appendChild(errorMessage)
+    const errorMessage = document.createElement('marquee')
+    errorMessage.textContent = `Gah, it's not working!`
+    app.appendChild(errorMessage)
   }
 }
 
 // Send request
 request.send()
+
 

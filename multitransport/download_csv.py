@@ -2,6 +2,10 @@ import urllib.request
 
 
 def download(town):
+    """ This function downloads csv file for a set town
+    Parameters:
+    - town (ex: Montpellier)
+    """
     if town == 'Montpellier':
         url = 'https://data.montpellier3m.fr/sites/default/files/ressources' \
                 '/TAM_MMM_TpsReel.csv'

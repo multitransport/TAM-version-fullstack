@@ -5,6 +5,10 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 def liste_stations(town):
+    """ This function checks all database entries associated
+    with a set town and returns a list wich contains stations.
+    Parameter : town (ex: Montpellier)
+    """
     conn, cursor = create_db.connect()
     cursor.execute("""
     SELECT Arrêt FROM info_trafic WHERE Ville = ?
@@ -19,6 +23,13 @@ def liste_stations(town):
 
 
 def liste_trains(station, town):
+    """ This function checks all database entries associated
+    with a set station in a town and returns a list wich contains
+    upcomming trains (whatever the line and destination).
+    Parameter :
+    - station (ex: COMEDIE)
+    - town (ex: Montpellier)
+    """
     conn, cursor = create_db.connect()
     cursor.execute("""
     SELECT * FROM info_trafic WHERE Arrêt = ? AND Ville = ?
@@ -38,6 +49,15 @@ def liste_trains(station, town):
 
 
 def liste_next(station, destination, line, town):
+    """ This function checks all database entries associated
+    with a set station, destination and line in a town and
+    returns a list containing upcomming trains.
+    Parameter :
+    - station (ex: COMEDIE)
+    - destination (ex: SABINES)
+    - line (ex: 2)
+    - town (ex: Montpellier)
+    """
     conn, cursor = create_db.connect()
     cursor.execute("""
     SELECT * FROM info_trafic

@@ -9,9 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Raleway:wght@200&display=swap" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/f1f0b36fa0.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/all_stations.js"></script>
     <title>TAM</title>
 </head>
 <body>
+   
     <!--video background-->
     <video autoplay muted loop src="ressources/video/video.mp4"></video>
     <!--<img id="background" src="ressources/img/poster.jpg" alt="background">-->
@@ -24,28 +26,21 @@
         </div>
         <!-- text simplon container-->
         <div  id="main-form" >
-            <form action="/action_page.php">
-                <div class="dropdown">
-                    <button class="dropbtn">Ville</button>
-                    <div class="dropdown-content">
-                        <a href="#">Montpellier</a>
-                        <a href="#">Lille</a>
-                        <a href="#">Angers</a>
-                        <a href="#">Rennes</a>
-                    </div>
-                </div> 
-                <input type="text" id="fname" name="fname" placeholder="Arrêt"><br><br>
-                <input type="text" id="lname" name="lname" placeholder="Destination"><br><br>
-                <!-- <input type="submit" value="Submit"> -->
-            </form> 
-        </div>
-        <!--links container-->
-         <ul> 
-                <li><a href="https://github.com/adrianruizmora" title="Github"><img src="ressources/img/logo.png" alt="logo TAM"></a></li>
-                <li><a href="https://www.linkedin.com/feed/" title="LinkedIn"><img src="ressources/img/logo-lille.png" alt="logo Lille"></a></li>
-                <li><a href="https://openclassrooms.com/fr/members/zbcp3d4ljt88" title="OpenClassrooms"><img src="ressources/img/logo-rennes.png" alt="logo rennes"></a></li>
-                <li><a href="mailto:adrianruizmora@gmail.com" target="_blank" title="Mail"><img src="ressources/img/logo-irigo.png" alt="logo irigo"></a></li>  
-         </ul>
+
+        <form action="all_stations.html">
+            <button value="Montpellier" name="town"><img src="ressources/img/logo.png" alt="logo Montpellier"></button>
+            <button value="Rennes" name="town"><img src="ressources/img/logo-rennes.png"></button>
+            <button value="Lille" name="town"><img src="ressources/img/logo-lille.png"></button>
+            <button value="Angers" name="town"><img src="ressources/img/logo-irigo.png"></button>
+        </form> 
+
+        <!-- <ul>
+            <li><a href="all_stations.html" title="MTP"><img src="ressources/img/logo.png" alt="logo Montpellier"></a></li>
+            <li><a href="#" title="MEL"><img src="ressources/img/logo-lille.png" alt="logo Lille"></a></li>
+            <li><a href="#" title="STAR"><img src="ressources/img/logo-rennes.png" alt="logo rennes"></a></li>
+            <li><a href="#" title="irigo"><img src="ressources/img/logo-irigo.png" alt="logo irigo"></a></li>  
+         </ul> -->
+         
     </div>
     
 </body>

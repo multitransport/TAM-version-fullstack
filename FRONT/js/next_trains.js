@@ -5,7 +5,7 @@ for (let step=0; step<parameters.length; step++){
   if (parameters[step].split("=")[0] === "town"){
     town = parameters[step].split("=")[1]
   }else{
-    town = parameters[step].split("=")[1]
+    station = parameters[step].split("=")[1]
   }
 }
 

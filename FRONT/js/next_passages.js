@@ -9,7 +9,7 @@ app.appendChild(container)
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'http://127.0.0.1:5000/Montpellier/stations/ODYSSEUM', true)
+request.open('GET', 'http://127.0.0.1:5000/Montpellier/next/?line=1&station=MOSSON&destination=ODYSSEUM', true)
 request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
@@ -31,7 +31,7 @@ request.onload = function () {
   
     // Create a p and set the text content to the film's description
     const p = document.createElement('p')
-    p.textContent = 'Ligne : ' + transport[0] + ", Heure d'arrivée : " + String(transport[3])
+    p.textContent = 'Ligne : ' + transport[0] + ", Temps d'attente : " + String(transport[3]) + ' mn'
     
 
     // Append the cards to the container element

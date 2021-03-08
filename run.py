@@ -1,5 +1,5 @@
-#! /usr/bin/env python
-from multitransport import app
+import multitransport.app as app
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
+if __name__ == '__main__':
+    app.app.run(debug=True)

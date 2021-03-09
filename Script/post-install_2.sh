@@ -37,7 +37,7 @@ sudo apt-get install --yes git git-extras build-essential python3-pip
 sudo pip3 install --upgrade pip
 
 echo "Installation des librairie python utile au brief"
-sudo pip3 install -r requirements.txt
+sudo pip3 install -r ./TAM-version-fullstack/requirements.txt
 
 echo "PASSWORD SUDO ENABLE"
 sudo sed -i "s/%sudo ALL=(ALL) NOPASSWD:ALL/%admin ALL=(ALL) ALL/" /etc/ssh/sshd_config

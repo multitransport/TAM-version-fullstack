@@ -37,7 +37,7 @@ request.onload = function () {
  
      // Create an h1 and set the text content to the film's title
      const h2 = document.createElement('h2')
-     h2.textContent = transport[0][1] + ' - ' + transport[0][2] + ' - Ligne : ' + transport[0][0]
+     h2.textContent = 'Arrêt : ' + transport[0][1] + ' - Destination : ' + transport[0][2] + ' - Ligne : ' + transport[0][0]
     
 
   

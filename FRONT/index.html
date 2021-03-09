@@ -28,11 +28,24 @@
         <div  id="main-form" >
 
         <form action="all_stations.html">
-            <button value="Montpellier" name="town"><img src="ressources/img/logo.png" alt="logo Montpellier"></button>
-            <button value="Rennes" name="town"><img src="ressources/img/logo-rennes.png"></button>
-            <button value="Lille" name="town"><img src="ressources/img/logo-lille.png"></button>
-            <button value="Angers" name="town"><img src="ressources/img/logo-irigo.png"></button>
+            <div class="dropdown">
+                <button class="dropbtn">Choissisez votre ville ≡</button>
+                <div class="dropdown-content">
+                    <button value="Montpellier" name="town" class="button1"><img src="ressources/img/logo.png" alt="logo Montpellier"></button>
+                    <button value="Rennes" name="town" class="button1"><img src="ressources/img/logo-rennes.png"></button>
+                    <button value="Lille" name="town" class="button1"><img src="ressources/img/logo-lille.png"></button>
+                    <button value="Angers" name="town" class="button1"><img src="ressources/img/logo-irigo.png"></button>
+                </div>
+            </div>
         </form> 
+
+        <form action="next_passages.html">
+            <input type="text" id="city" name="town" placeholder="Ville">
+            <input type="text" id="line" name="line" placeholder="Ligne">
+            <input type="text" id="station" name="station" placeholder="Station">
+            <input type="text" id="destination" name="destination" placeholder="Destination"><br>
+            <button id="myButton">Envoyer</button>
+        </form>
 
         <!-- <ul>
             <li><a href="all_stations.html" title="MTP"><img src="ressources/img/logo.png" alt="logo Montpellier"></a></li>

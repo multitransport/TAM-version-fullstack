@@ -1,3 +1,21 @@
+var parameters = location.search.substring(1).split("&");
+var town;
+var station;
+var line;
+var destination;
+for (let step=0; step<parameters.length; step++){
+  if (parameters[step].split("=")[0] === "town"){
+    town = parameters[step].split("=")[1]
+  }else if (parameters[step].split("=")[0] === "station"){
+    station = parameters[step].split("=")[1]
+  }else if (parameters[step].split("=")[0] === "line"){
+    line = parameters[step].split("=")[1]
+  }else{
+    destination = parameters[step].split("=")[1]
+  }
+}
+
+
 const app = document.getElementById('root')
 
 const container = document.createElement('div')
@@ -9,7 +27,7 @@ app.appendChild(container)
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'http://127.0.0.1:5000/Montpellier/next/?line=1&station=MOSSON&destination=ODYSSEUM', true)
+request.open('GET', 'http://127.0.0.1:5000/'+town+'/next/?line='+line+'&station='+station+'&destination='+destination, true)
 request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
@@ -22,7 +40,7 @@ request.onload = function () {
 
     // Create an h1 and set the text content to the film's title
     const h2 = document.createElement('h2')
-    h2.textContent = data[0][1] + ' - ' + data[0][2]
+    h2.textContent = 'Arrêt : ' + data[0][1] + ' - Destination : ' + data[0][2] + ' - Ligne : ' + data[0][0]
     card.appendChild(h2)
     const p = document.createElement('p')
     
@@ -31,7 +49,7 @@ request.onload = function () {
   
     // Create a p and set the text content to the film's description
     const p = document.createElement('p')
-    p.textContent = 'Ligne : ' + transport[0] + ", Temps d'attente : " + String(transport[3]) + ' mn'
+    p.textContent = String(transport[3])
     
 
     // Append the cards to the container element

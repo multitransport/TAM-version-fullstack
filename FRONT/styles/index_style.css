@@ -89,9 +89,9 @@ input[type=submit]
 
 img
 {
-    padding-top: 10%;
     width: 80px;
     height: auto;
+
 }
 
 h1
@@ -107,6 +107,8 @@ h2
     font-size: 1.5em;
 }
 
+
+
  /* Dropdown Button */
  .dropbtn {
     background-color: white;
@@ -116,7 +118,7 @@ h2
     font-family: 'Raleway', sans-serif;
     border: none;
     border-radius: 10px;
-    width: 100px;
+    width: 200px;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -124,6 +126,7 @@ h2
     position: relative;
     display: inline-block;
     margin-bottom: 30px;
+    
   }
   
   /* Dropdown Content (Hidden by Default) */
@@ -134,24 +137,58 @@ h2
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    border: 3px solid black;
+    
   }
   
   /* Links inside the dropdown */
-  .dropdown-content a {
+  .dropdown-content button {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    width: 100%;
+    
   }
+
   
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content button:hover {background-color: #ddd;}
   
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: white;} 
+  /* .dropdown:hover .dropbtn {background-color: white;}  */
+
+
+.button1{
+display:inline-block;
+padding:0.35em 1.2em;
+border:0.1em solid #FFFFFF;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+text-align:center;
+transition: all 0.2s;
+}
+.button1:hover{
+color:#000000;
+background-color:#FFFFFF;
+}
+@media all and (max-width:30em){
+.button1{
+display:block;
+margin:0.4em auto;
+}
+} 
+
+
+
 
 a
 {

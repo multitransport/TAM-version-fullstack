@@ -17,6 +17,13 @@ sudo timedatectl set-timezone Europe/Paris
 # Les mises à jours sont déjà présente sur la VM pour gagner du temps lors de l'execution du script
 
 
+echo "Password desactivation"
+sudo sed -i "s/PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
+#Désactive l'authentification ssh par mot de passe
+sudo /etc/init.d/ssh restart
+#Relance le servcie ssh pour appliquer les modifications
+
+
 echo "Installation de Apache pour le serveur http"
 sudo apt install apache2
 # Mode restrictif avec autorisation d'accès sur le port 80
@@ -25,21 +32,9 @@ sudo ufw allow 'Apache'
 sudo systemctl status apache2
 
 
-echo "Password desactivation"
-sudo sed -i "s/PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
-#Désactive l'authentification ssh par mot de passe
-sudo /etc/init.d/ssh restart
-#Relance le servcie ssh pour appliquer les modifications
-
-
 echo "Installing base packages"
 sudo apt-get install --yes git git-extras build-essential python3-pip
-sudo myvenv/bin/pip install --upgrade pip
-
-#install permet d'installer les applications ou paquets demandés juste après
-#--yes permet de répondre yes si des questions sont demandées
-echo "Clone du repo git"
-sudo git clone https://github.com/multitransport/TAM-version-fullstack.git
+sudo pip3 install --upgrade pip
 
 echo "Installation des librairie python utile au brief"
 sudo pip3 install -r requirements.txt

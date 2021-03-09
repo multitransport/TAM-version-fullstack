@@ -16,3 +16,5 @@ sshpass -p $mdp ssh-copy-id -i /mnt/c/Users/utilisateur/.ssh/id_rsa.pub $login@$
 # sshpass -p $mdp ssh $login@$mdp "chmod +x $name_script_sh"
 # sshpass -p $mdp ssh $login@$mdp "sed -i -e 's/\r$//' $name_script_sh"
 sshpass -p $mdp ssh $login@$mdp "sudo git clone https://github.com/multitransport/TAM-version-fullstack.git"
+
+sshpass -p $mdp ssh $login@$mdp "sudo ./TAM-version-fullstack/Script/post-install_2.sh"

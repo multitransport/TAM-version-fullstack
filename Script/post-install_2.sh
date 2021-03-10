@@ -33,7 +33,7 @@ sudo systemctl status apache2
 
 
 echo "Installing base packages"
-sudo apt-getda install -y git git-extras build-essential python3-pip
+sudo apt-get install -y git git-extras build-essential python3-pip
 sudo pip3 install --upgrade pip
 
 echo "Installation des librairie python utile au brief"

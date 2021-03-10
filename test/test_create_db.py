@@ -3,6 +3,10 @@ import unittest
 
 
 class TestFonctions(unittest.TestCase):
+    # def test_connection(self):
+    #     self.connection = sqlite3.connect(":memory:")
+
+
     def test_liste_stations(self):
         conn = sqlite3.connect(":memory:")
         cursor = conn.cursor()

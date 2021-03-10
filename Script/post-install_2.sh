@@ -33,11 +33,14 @@ sudo systemctl status apache2
 
 
 echo "Installing base packages"
-sudo apt-getda install -y git git-extras build-essential python3-pip
+sudo apt-get install -y git git-extras build-essential python3-pip
 sudo pip3 install --upgrade pip
 
 echo "Installation des librairie python utile au brief"
 sudo pip3 install -r ./TAM-version-fullstack/requirements.txt
+
+# Copie les fichiers du FRONT vers le serveur html appache
+sudo cp -r TAM-version-fullstack/FRONT/* /var/www/html/
 
 echo "PASSWORD SUDO ENABLE"
 sudo sed -i "s/%sudo ALL=(ALL) NOPASSWD:ALL/%admin ALL=(ALL) ALL/" /etc/ssh/sshd_config

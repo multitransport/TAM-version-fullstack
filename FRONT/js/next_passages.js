@@ -27,7 +27,7 @@ app.appendChild(container)
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'http://127.0.0.1:5000/'+town+'/next/?line='+line+'&station='+station+'&destination='+destination, true)
+request.open('GET', 'http://10.0.4.5:5000/'+town+'/next/?line='+line+'&station='+station+'&destination='+destination, true)
 request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)

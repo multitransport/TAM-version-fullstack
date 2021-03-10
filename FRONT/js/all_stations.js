@@ -17,7 +17,7 @@ var request = new XMLHttpRequest()
 request.responseType = 'json'
 // Open a new connection, using the GET request on the URL endpoint
 
-request.open('GET', "http://127.0.0.1:5000/"+town+"/stations", true)
+request.open('GET', "http://10.0.4.5:5000/"+town+"/stations", true)
 
 
 request.onload = function () {

@@ -24,6 +24,16 @@ Une fois dans le dossier source, ecrire "python -m unittest" dans la console
 
 ## Partie FRONT:
 
+HTML:
+Une fois le serveur démarré, on peut accéder au fichier index.html (accueil de l’application web) via son chemin absolu sur le navigateur web et en spécifiant l'IP du serveur distant.  
+
+L’utilisateur pourra ensuite naviguer vers les autres fichiers html via les formulaires.  
+
+CSS:
+Chaque fichier html possède son propre fichier CSS afin de rendre un contenu styliser. Le contenu et par la plupart mit en forme grâce au flexbox. 
+
+JAVASCRIPT:
+Les fichiers javascript permettent de faire la liaison entre les informations demandées par le client et le serveur distant de façon dynamique via de requêtes http utilisant l’API. 
 
 ## Script Bash
 

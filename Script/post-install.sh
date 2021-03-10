@@ -30,3 +30,4 @@ cat /mnt/c/Users/utilisateur/.ssh/mdp2.ini | sshpass -p $mdp ssh -T $login@$ipad
 
 # Connexion VM pour lancer l'API
 cat /mnt/c/Users/utilisateur/.ssh/mdp2.ini | ssh -T $login@$ipaddress " sudo -S python3 TAM-version-fullstack/run.py"
+

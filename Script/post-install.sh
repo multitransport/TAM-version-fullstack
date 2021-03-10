@@ -29,4 +29,4 @@ sshpass -p $mdp ssh $login@$ipaddress "sed -i -e 's/\r$//' ./TAM-version-fullsta
 cat /mnt/c/Users/utilisateur/.ssh/mdp2.ini | sshpass -p $mdp ssh -T $login@$ipaddress "sudo -S ./TAM-version-fullstack/Script/post-install_2.sh"
 
 # Connexion VM pour lancer l'API
-ssh $login@$ipaddress "sudo python3 run.py"
+ssh -T $login@$ipaddress "sudo -S python3 run.py"

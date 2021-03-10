@@ -25,7 +25,7 @@ sudo /etc/init.d/ssh restart
 
 
 echo "Installation de Apache pour le serveur http"
-sudo apt install apache2
+sudo apt install -y apache2
 # Mode restrictif avec autorisation d'accès sur le port 80
 sudo ufw allow 'Apache'
 # Vérification du status du serveur

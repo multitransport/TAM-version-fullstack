@@ -2,32 +2,31 @@ import unittest
 from multitransport.create_db import *
 
 
-<<<<<<< HEAD
-class TestFonctions(unittest.TestCase):
+# class TestFonctions(unittest.TestCase):
     # def test_connection(self):
     #     self.connection = sqlite3.connect(":memory:")
 
 
-    def test_liste_stations(self):
-        conn = sqlite3.connect(":memory:")
-        cursor = conn.cursor()
-        cursor.execute("""DROP TABLE IF EXISTS table_test""")
-        cursor.execute("""CREATE TABLE IF NOT EXISTS "table_test" (
-        "Ligne"	TEXT,
-        "Arrêt"	TEXT,
-        "Destination"	TEXT,
-        "Temps_attente"	INTEGER,
-        "Ville"	TEXT
-        );""")
-        cursor.execute(
-=======
+#     def test_liste_stations(self):
+#         conn = sqlite3.connect(":memory:")
+#        cursor = conn.cursor()
+#        cursor.execute("""DROP TABLE IF EXISTS table_test""")
+#        cursor.execute("""CREATE TABLE IF NOT EXISTS "table_test" (
+#        "Ligne"	TEXT,
+#        "Arrêt"	TEXT,
+#        "Destination"	TEXT,
+#        "Temps_attente"	INTEGER,
+#        "Ville"	TEXT
+#        );""")
+#        cursor.execute(
+
+
 class TestCreateDb(unittest.TestCase):
 
     def test_create_schema(self):
         conn, c = connect(":memory:")
         create_schema(c)
         c.execute(
->>>>>>> 3bd4df1eb72e63d8d86c9d4845eef870ab7104b6
             """
             SELECT * FROM 'info_trafic';
             """)

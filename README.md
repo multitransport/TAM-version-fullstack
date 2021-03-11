@@ -6,7 +6,7 @@ Le but du brief était d'exploiter l’opendata des horaires de transports pour 
 LIBRAIRIES utilisées :
 - Flask
 - Sqlite3
-- Unnitest
+- Unittest
 
 ## Partie BACK (dossier appelé multitranport):
 

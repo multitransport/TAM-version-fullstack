@@ -37,7 +37,6 @@ jobs:
       run: |
         echo ${{ github.ref }}
         git add .
-        git rm -rf __pycache__/
         git rm -rf multitransport/__pycache__/
         git rm -rf test/__pycache__/
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
